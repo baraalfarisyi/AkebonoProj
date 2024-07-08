@@ -1,0 +1,60 @@
+﻿@model AkebonoProj.Model.TransaksiProduksi
+@{
+    ViewData["Title"] = "Transaksi";
+}
+
+<h2>Tampilan View:</h2>
+
+<form method="post" asp-action="Index">
+    <div>
+        <label for="Tanggal">Tanggal</label>
+        <input type="date" id="Tanggal" name="Tanggal" value="@ViewData["Tanggal"]" />
+    </div>
+    <div>
+        <label for="Lokasi">Lokasi</label>
+        <select id="Lokasi" name="Lokasi">
+            <option value="Lokasi 1">Lokasi 1</option>
+            <option value="Lokasi 2">Lokasi 2</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit" name="action" value="Cari">Cari</button>
+        <button type="submit" name="action" value="Clear">Clear</button>
+    </div>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>Kode Item</th>
+            <th>Nama Item</th>
+            <th>Kode Lokasi</th>
+            <th>Nama Lokasi</th>
+            <th>Qty Actual</th>
+            <th>Crea By</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewData["Results"] != null)
+        {
+            var results = (List<TransaksiProduksi>)ViewData["Results"];
+            int no = 1;
+            foreach (var item in results)
+            {
+                <tr>
+                    <td>@no</td>
+                    <td>@item.Tanggal</td>
+                    <td>@item.KodeItem</td>
+                    <td>@item.NamaItem</td>
+                    <td>@item.KodeLokasi</td>
+                    <td>@item.NamaLokasi</td>
+                    <td>@item.QtyActual</td>
+                    <td>@item.CreaBy</td>
+                </tr>
+                no++;
+            }
+        }
+    </tbody>
+</table>
