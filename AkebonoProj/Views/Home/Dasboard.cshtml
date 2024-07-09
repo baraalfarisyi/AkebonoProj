@@ -10,7 +10,13 @@
         <nav>
             <ul>
                 <li><a href="/Dashboard">Dashboard</a></li>
-                <li><a href="/Transaksi/Insert">Transaksi</a></li>
+                <li class="parent-menu">
+                    <a href="#">Transaksi</a>
+                    <ul class="child-menu">
+                        <li><a href="/Transaksi/Insert">Input</a></li>
+                        <li><a href="/Transaksi/Index">View</a></li>
+                    </ul>
+                </li>
                 <li><a href="/Account/Logout">Logout</a></li>
             </ul>
         </nav>
@@ -85,6 +91,17 @@
                     text-decoration: none;
                 }
 
+            .sidebar nav ul .parent-menu:hover .child-menu {
+                display: block;
+            }
+
+            .sidebar nav ul .child-menu {
+                list-style-type: none;
+                padding: 0;
+                margin-left: 20px;
+                display: none;
+            }
+
     .main-content {
         flex: 1;
         padding: 1rem;
@@ -111,3 +128,20 @@
     }
 
     .btn {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #3c8dbc;
+        cursor: pointer;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+    }
+
+        .btn-primary:hover, .btn-danger:hover {
+            opacity: 0.8;
+        }
+</style>
