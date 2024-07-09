@@ -1,31 +1,27 @@
-﻿@model List<AkebonoProj.Model.TransaksiProduksi>
+﻿@model List<AkebonoProj.Model.ViewModels.TransaksiProduksiViewModel>
 
-@{
-}
-
-<h1>Transaksi</h1>
-
-<table class="table">
+<table>
     <thead>
         <tr>
-            <th>TglTransaksi</th>
+            <th>Tanggal Transaksi</th>
+            <th>Kode Item</th>
+            <th>Qty Actual</th>
+            <th>Kode Lokasi</th>
             <th>NPK</th>
-            <th>KodeItem</th>
-            <th>KodeLokasi</th>
-            <th>QtyActual</th>
+            <th>Nama Lokasi</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var TransaksiProduksi in Model)
+        @foreach (var item in Model)
         {
             <tr>
-               <td>@TransaksiProduksi.TglTransaksi</td
-               <td>@TransaksiProduksi.NPK</td
-                   <td>@TransaksiProduksi.KodeItem</td
-                       <td>@TransaksiProduksi.KodeLokasi</td
-                           <td>@TransaksiProduksi.QtyActual</td
+                <td>@item.TglTransaksi</td>
+                <td>@item.KodeItem</td>
+                <td>@item.QtyActual</td>
+                <td>@item.KodeLokasi</td>
+                <td>@item.NPK</td>
+                <td>@item.NamaLokasi</td>
             </tr>
         }
     </tbody>
 </table>
-

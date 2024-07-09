@@ -22,7 +22,7 @@ namespace AkebonoProj.Controllers
         {
             var transaksi = await (from tp in _dbContext.TransaksiProduksis
                                    join l in _dbContext.Lokasis on tp.KodeLokasi equals l.Kode
-                                   select new
+                                   select new TransaksiProduksiViewModel
                                    {
                                        TglTransaksi = tp.TglTransaksi,
                                        KodeItem = tp.KodeItem,
@@ -30,7 +30,7 @@ namespace AkebonoProj.Controllers
                                        KodeLokasi = tp.KodeLokasi,
                                        NPK = tp.NPK,
                                        NamaLokasi = l.NameLocation,
-                                       CreatedBy = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))
+                                       //CreatedBy = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))
                                    }
                                    ).ToListAsync();
             return View(transaksi);
